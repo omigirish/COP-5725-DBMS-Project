@@ -1,0 +1,7 @@
+
+/.vscode
+/Database/IngestionScripts/.env
+/Database/IngestionScripts/__pycache__
+../../.DS_Store
+.DS_Store
+

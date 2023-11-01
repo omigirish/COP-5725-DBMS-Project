@@ -1,0 +1,2 @@
+cx_Oracle==8.2.1  # for Oracle database access
+python-dotenv==0.19.0  # for reading environment variables from .env files
