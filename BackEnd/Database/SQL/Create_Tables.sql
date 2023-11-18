@@ -1,4 +1,21 @@
+
 -- Create Table Commands
+
+--Test Tables
+CREATE TABLE Test (
+    c2 VARCHAR(255), 
+    c3 VARCHAR(255)
+);
+
+
+INSERT INTO Test (c2, c3) VALUES ('Girish', 'Salunke');
+
+GRANT SELECT,INSERT ON TEST TO rutwiksaraf;
+GRANT SELECT,INSERT ON TEST TO mathurpriyanshu;
+
+
+
+SELECT * FROM gsalunke.TEST;
 
 -- Climate Conditions 
 CREATE TABLE Climate_Conditions (

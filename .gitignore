@@ -4,4 +4,8 @@
 /Database/IngestionScripts/__pycache__
 ../../.DS_Store
 .DS_Store
-
+/BackEnd/Database/IngestionScripts/__pycache__
+/FrontEnd/.angular
+/FrontEnd/.vscode
+/FrontEnd/node_modules
+.DS_Store
