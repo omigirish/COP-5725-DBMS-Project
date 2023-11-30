@@ -162,6 +162,123 @@ def deviation_query():
     
     return jsonify(results)
 
+@app.route('/get_trip_data', methods=['GET'])
+def get_trip_data():
+    state = request.args.get('state').strip()  # Retrieve state from the query parameter
+    cursor = connection.cursor()
+
+    query = f"""
+        WITH MonthlyTripData AS (
+        SELECT
+            TO_CHAR(ts.Start_Time, 'YYYY-MM') AS day,
+            SUM(ts.trip_frequency) AS trips_total,
+            SUM(ts.trips_lt1) AS trips_lt1,
+            SUM(ts.trips_1_3) AS trips_1_3,
+            SUM(ts.trips_3_5) AS trips_3_5,
+            SUM(ts.trips_5_10) AS trips_5_10,
+            SUM(ts.trips_10_25) AS trips_10_25,
+            SUM(ts.trips_25_50) AS trips_25_50,
+            SUM(ts.trips_50_100) AS trips_50_100,
+            SUM(ts.trips_100_250) AS trips_100_250,
+            SUM(ts.trips_250_500) AS trips_250_500,
+            SUM(ts.trips_gt500) AS trips_gt500
+        FROM
+            traffic_stats ts
+        JOIN
+            recorded_at ra ON ts.stat_id = ra.stat_id
+        WHERE
+            ra.State = ' {state} '
+        GROUP BY
+            TO_CHAR(ts.Start_Time, 'YYYY-MM')
+        ORDER BY TO_CHAR(ts.Start_Time, 'YYYY-MM')
+    )
+    SELECT
+        day,
+        trips_total,
+        ROUND(trips_lt1 / trips_total * 100, 2) AS trips_lt1,
+        ROUND(trips_1_3 / trips_total * 100, 2) AS trips_1_3,
+        ROUND(trips_3_5 / trips_total * 100, 2) AS trips_3_5,
+        ROUND(trips_5_10 / trips_total * 100, 2) AS trips_5_10,
+        ROUND(trips_10_25 / trips_total * 100, 2) AS trips_10_25,
+        ROUND(trips_25_50 / trips_total * 100, 2) AS trips_25_50,
+        ROUND(trips_50_100 / trips_total * 100, 2) AS trips_50_100,
+        ROUND(trips_100_250 / trips_total * 100, 2) AS trips_100_250,
+        ROUND(trips_250_500 / trips_total * 100, 2) AS trips_250_500,
+        ROUND(trips_gt500 / trips_total * 100, 2) AS trips_gt500
+    FROM
+        MonthlyTripData
+    """
+    print(query)
+    cursor.execute(query)
+    result = cursor.fetchall()
+
+    cursor.close()
+
+    # Format the query result as per the desired structure
+    formatted_data = {
+        "day": [row[0] for row in result],
+        "trips_100_250": [row[9] for row in result],
+        "trips_10_25": [row[6] for row in result],
+        "trips_1_3": [row[3] for row in result],
+        "trips_250_500": [row[10] for row in result],
+        "trips_25_50": [row[7] for row in result],
+        "trips_3_5": [row[4] for row in result],
+        "trips_50_100": [row[8] for row in result],
+        "trips_5_10": [row[5] for row in result],
+        "trips_gt500": [row[11] for row in result],
+        "trips_lt1": [row[2] for row in result],
+        "trips_total": [row[1] for row in result]
+    }
+
+    return jsonify(formatted_data)
+
+
+@app.route('/accident_count/<state_code>', methods=['GET'])
+def get_accident_count(state_code):
+    cursor = connection.cursor()
+    query = '''
+        SELECT TO_CHAR(A.Start_Time, 'YYYY-MM') as month, COUNT(a.accident_id)
+        FROM ACCIDENTS A
+        JOIN LOCATION L ON A.zipcode = L.zip_code
+        WHERE L.state = :state
+        GROUP BY TO_CHAR(A.Start_Time, 'YYYY-MM')
+        ORDER BY TO_CHAR(A.Start_Time, 'YYYY-MM')
+    '''
+
+    cursor.execute(query, state=state_code)
+    data = cursor.fetchall()
+
+    cursor.close()
+
+    months = [row[0] for row in data]
+    accident_count = [row[1] for row in data]
+
+    result = {'months': months, 'accident_count': accident_count}
+    return jsonify(result)
+
+
+@app.route('/weather_count/<wcondition>', methods=['GET'])
+def get_weather_count(wcondition):
+    cursor = connection.cursor()
+    query = '''
+        SELECT DISTINCT TO_CHAR(A.Start_Time, 'YYYY-MM') as month, COUNT(a.accident_id) FROM Accidents a, Climate_Conditions cc
+        WHERE A.Observation_ID = cc.observation_id AND cc.category=:wcondition
+        GROUP BY TO_CHAR(A.Start_Time, 'YYYY-MM')
+        ORDER BY TO_CHAR(A.Start_Time, 'YYYY-MM')
+    '''
+
+    cursor.execute(query, wcondition=wcondition)
+    data = cursor.fetchall()
+
+    cursor.close()
+
+    months = [row[0] for row in data]
+    accident_count = [row[1] for row in data]
+
+    result = {'months': months, 'accident_count': accident_count}
+    return jsonify(result)
+
+
 
 if __name__ == '__main__':
     port = 3000  # Specify the port number
