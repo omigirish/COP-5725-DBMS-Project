@@ -1,22 +1,6 @@
 
 -- Create Table Commands
 
---Test Tables
-CREATE TABLE Test (
-    c2 VARCHAR(255), 
-    c3 VARCHAR(255)
-);
-
-
-INSERT INTO Test (c2, c3) VALUES ('Girish', 'Salunke');
-
-GRANT SELECT,INSERT ON TEST TO rutwiksaraf;
-GRANT SELECT,INSERT ON TEST TO mathurpriyanshu;
-
-
-
-SELECT * FROM gsalunke.TEST;
-
 -- Climate Conditions 
 CREATE TABLE Climate_Conditions (
     Observation_ID VARCHAR(255) PRIMARY KEY,
@@ -35,10 +19,22 @@ SELECT * FROM Climate_Conditions;
 
 --Create table for Infrastructure:
 CREATE TABLE Infrastructure (
-    Infra_ID VARCHAR(255) PRIMARY KEY,
-    Infra_name VARCHAR(255)
+    Infra_ID VARCHAR(10) PRIMARY KEY,
+    Bump NUMBER(1),
+    Crossing NUMBER(1),
+    Give_Way NUMBER(1),
+    Junction NUMBER(1),
+    No_Exit NUMBER(1),
+    Railway NUMBER(1),
+    Roundabout NUMBER(1),
+    Station NUMBER(1),
+    Stop NUMBER(1),
+    Traffic_Calming NUMBER(1),
+    Traffic_Signal NUMBER(1),
+    Turning_Loop NUMBER(1)
 );
 SELECT * FROM Infrastructure;
+DROP TABLE Infrastructure;
 
 --Create table for Time
 CREATE TABLE Time (
@@ -50,6 +46,8 @@ CREATE TABLE Time (
     CONSTRAINT CK_Civil_twilight CHECK (Civil_twilight IN ('Day', 'Night')),
     CONSTRAINT CK_Time_zone CHECK (Time_zone IN ('US/Eastern', 'US/Pacific', 'US/Central', 'US/Mountain'))
 );
+
+DROP TABLE Time;
 
 SELECT * FROM Time;
 
@@ -70,6 +68,7 @@ CREATE TABLE Location (
 );
 
 SELECT * FROM Location;
+DROP TABLE LOCATION;
 
 --Create table for Traffic Statistics
 CREATE TABLE Traffic_Stats (
@@ -90,6 +89,7 @@ CREATE TABLE Traffic_Stats (
 );
 
 SELECT * FROM Traffic_Stats;
+DROP TABLE Traffic_Stats;
 
 --Create table for Accidents
 CREATE TABLE Accidents (
@@ -108,6 +108,7 @@ CREATE TABLE Accidents (
 );
 
 SELECT * FROM Accidents;
+DROP TABLE Accidents;
 
 --Create table for Happened Near:
 CREATE TABLE Happened_Near (
@@ -116,6 +117,7 @@ CREATE TABLE Happened_Near (
     FOREIGN KEY (Accident_ID) REFERENCES Accidents(Accident_ID),
     FOREIGN KEY (Infra_ID) REFERENCES Infrastructure(Infra_ID)
 );
+DROP TABLE Happened_Near;
 
 SELECT * FROM Happened_Near;
 
@@ -128,4 +130,5 @@ CREATE TABLE Recorded_At (
 );
 
 SELECT * FROM Recorded_At;
+DROP TABLE Recorded_At;
 

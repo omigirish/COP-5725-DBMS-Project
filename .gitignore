@@ -9,3 +9,6 @@
 /FrontEnd/.vscode
 /FrontEnd/node_modules
 .DS_Store
+
+/BackEnd/Database/IngestionScripts/Table_Files
+/BackEnd/Database/IngestionScripts/Datasets

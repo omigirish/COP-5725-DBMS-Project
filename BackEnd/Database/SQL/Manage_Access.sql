@@ -25,8 +25,6 @@ GRANT SELECT, INSERT ON time TO rutwiksaraf, mathurpriyanshu, shinder;
 -- Grant SELECT and INSERT permissions on the 'traffic_stats' table
 GRANT SELECT, INSERT ON traffic_stats TO rutwiksaraf, mathurpriyanshu, shinder;
 
--- Grant SELECT and INSERT permissions on the 'wcountry' table
-GRANT SELECT, INSERT ON wcountry TO rutwiksaraf, mathurpriyanshu, shinder;
 
 
 --REVOKE Access from Team Mates
