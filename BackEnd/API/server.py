@@ -278,7 +278,56 @@ def get_weather_count(wcondition):
     result = {'months': months, 'accident_count': accident_count}
     return jsonify(result)
 
+@app.route('/average-impact-duration/<state_code>', methods=['GET'])
+def get_average_impact_duration(state_code):
+    try:
+        cursor = connection.cursor()
 
+        query = """
+            SELECT 
+                TO_CHAR(Start_Time, 'YYYY-MM') AS month,
+                ROUND(AVG(normalised_impact_duration), 10) AS normalised_average_impact_duration
+            FROM 
+                (
+                    SELECT
+                        t.start_time,
+                        ((EXTRACT(SECOND FROM (t.end_time - t.start_time)) - min_impact_duration) / 
+                        (max_impact_duration - min_impact_duration)) AS normalised_impact_duration 
+                    FROM 
+                        Accidents a, 
+                        location l, 
+                        time t,
+                        (
+                            SELECT MAX(EXTRACT(SECOND FROM (t.end_time - t.start_time))) AS max_impact_duration
+                            FROM Accidents a, location l, time t 
+                            WHERE a.zipcode = l.zip_code AND a.start_time = t.start_time
+                            AND l.state = :state_code
+                        ) max_dur,
+                        (
+                            SELECT MIN(EXTRACT(SECOND FROM (t.end_time - t.start_time))) AS min_impact_duration
+                            FROM Accidents a, location l, time t 
+                            WHERE a.zipcode = l.zip_code AND a.start_time = t.start_time
+                            AND l.state = :state_code
+                        ) min_dur
+                    WHERE 
+                        a.zipcode = l.zip_code AND a.start_time = t.start_time
+                        AND l.state = :state_code
+                ) normalized_table
+            GROUP BY TO_CHAR(Start_Time, 'YYYY-MM')
+            ORDER BY TO_CHAR(Start_Time, 'YYYY-MM')
+        """
+
+        cursor.execute(query, state_code=state_code)
+        result = cursor.fetchall()
+
+        cursor.close()
+        dates = [row[0] for row in result]
+        normalised_avg = [row[1] for row in result]
+
+        return jsonify({'dates': dates, 'normalised_avg': normalised_avg})
+    except oracledb.DatabaseError as e:
+        error, = e.args
+        return f"Failed to fetch data: {error.message}", 500
 
 if __name__ == '__main__':
     port = 3000  # Specify the port number
