@@ -1,0 +1,297 @@
+<div class="container-fluid py-4">
+  <h4 class="heading">Temporal Analysis of US Motor Vehicle Accidents Trends (2019-2023)</h4>
+  <p class="total">Total Records in Database: <b>{{tableCounts["Total"]}}</b></p>
+    <div class="row">
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+              <span style="color:white; font-size:44px; padding-top: 10px;" class="material-symbols-outlined">
+                database
+                </span>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Traffic_Stats</p>
+              <h4 class="mb-0">{{tableCounts["Traffic_Stats"]}} Tuples</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <p class="mb-0">
+              <!-- <span class="text-success text-sm font-weight-bolder">+55% </span> -->
+              Total No. of Records in Traffic_Stats Table</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+              <span style="color:white; font-size:44px; padding-top: 10px;" class="material-symbols-outlined">
+                table_view
+              </span>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Accidents</p>
+              <h4 class="mb-0">{{tableCounts["Accidents"]}} Tuples</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <p class="mb-0">
+              <!-- <span class="text-success text-sm font-weight-bolder">+3% </span> -->
+              Number of Records in Accidents Table</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+              <span style="color:white; font-size:44px; padding-top: 10px;" class="material-symbols-outlined">
+                table_view
+              </span>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Climate Conditions</p>
+              <h4 class="mb-0">{{tableCounts["Climate_Conditions"]}} Tuples</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <p class="mb-0">
+              <!-- <span class="text-danger text-sm font-weight-bolder">-2%</span> -->
+              Number of Records in Climate Conditions Table</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+              <span style="color:white; font-size:44px; padding-top: 10px;" class="material-symbols-outlined">
+                table_view
+                </span>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Happened_Near</p>
+              <h4 class="mb-0">{{tableCounts["Happened_Near"]}} Tuples</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <p class="mb-0">
+              <!-- <span class="text-danger text-sm font-weight-bolder">-2%</span> -->
+              Number of Records in Happened Near Table</p>
+          </div>
+          
+        </div>
+      </div>
+    
+      <div class="col-xl-3 col-sm-6" style="margin-top: 25px;">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+              <span style="color:white; font-size:44px; padding-top: 10px;" class="material-symbols-outlined">
+                table_view
+                </span>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Location</p>
+              <h4 class="mb-0">{{tableCounts["Location"]}} Tuples</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <p class="mb-0">
+              <!-- <span class="text-danger text-sm font-weight-bolder">-2%</span> -->
+              Number of Records in Location Table</p>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-sm-6" style="margin-top: 25px;">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+              <span style="color:white; font-size:44px; padding-top: 10px;" class="material-symbols-outlined">
+                table_view
+                </span>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Infrastructure</p>
+              <h4 class="mb-0">{{tableCounts["Infrastructure"]}} Tuples</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <p class="mb-0">
+              <!-- <span class="text-danger text-sm font-weight-bolder">-2%</span> -->
+              Number of Records in Infrastructure Table</p>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-sm-6" style="margin-top: 25px;">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+              <span style="color:white; font-size:44px; padding-top: 10px;" class="material-symbols-outlined">
+                table_view
+                </span>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Recorded At</p>
+              <h4 class="mb-0">{{tableCounts["Recorded_At"]}} Tuples</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <p class="mb-0">
+              <!-- <span class="text-danger text-sm font-weight-bolder">-2%</span> -->
+              Number of Records in Recorded_At Table</p>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-sm-6" style="margin-top: 25px;">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+              <span style="color:white; font-size:44px; padding-top: 10px;" class="material-symbols-outlined">
+                table_view
+                </span>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Time</p>
+              <h4 class="mb-0">{{tableCounts["Time"]}} Tuples</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <p class="mb-0">
+              <!-- <span class="text-danger text-sm font-weight-bolder">-2%</span> -->
+              Number of Records in Time Table</p>
+          </div>
+          
+        </div>
+      </div>
+
+    
+      
+    </div>
+
+    
+
+    <!-- Upper Row of Graphs -->
+    <div class="row mt-4" style="padding-top: 15px;">
+      <div class="col-lg-4 col-md-6 mt-4 mb-4">
+        <div class="card z-index-2 ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-bars" class="chart-canvas" height="170">{{chart1}}</canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Average Accidents Per Year</h6>
+            <p class="text-sm ">Average of Total Number of Accidents in all the 12 months of the year.</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">schedule</i>
+              <p class="mb-0 text-sm"> 2016-2023 </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mt-4 mb-4">
+        <div class="card z-index-2  ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-line" class="chart-canvas" height="170"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 "> Average Traffic Density per Year. </h6>
+            <p class="text-sm "> (<span class="font-weight-bolder">+15%</span>) increase in total number of vehicles on the road. </p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">schedule</i>
+              <p class="mb-0 text-sm"> 2019-2023 </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mt-4 mb-3">
+        <div class="card z-index-2 ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas id="chart-line-tasks" class="chart-canvas" height="170"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Accident Severity Over Time</h6>
+            <p class="text-sm ">Total Number of Accidents of different Severity levels.</p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">schedule</i>
+              <p class="mb-0 text-sm">2016-2023</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      
+    </div>
+
+
+<!-- Lower Row of Graphs -->
+    <div class="row mt-4">
+      <div class="col-lg-12 col-md-6 mt-4 mb-4">
+        <div class="card z-index-2 ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-info shadow-info border-radius-lg py-3 pe-1">
+              <div class="map">
+                <div id="details-box"></div>
+                <app-usmap [ids]='selectedState'></app-usmap>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0 ">Accident Distibution By State</h6>
+            <p class="text-sm ">Geographic Distribution of Road Accidents in various States of USA. </p>
+            <hr class="dark horizontal">
+            <div class="d-flex ">
+              <i class="material-icons text-sm my-auto me-1">schedule</i>
+              <p class="mb-0 text-sm"> 2019 </p>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+
+
+    <footer class="footer py-4  ">
+      <div class="container-fluid">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6 mb-lg-0 mb-4">
+            <div class="copyright text-center text-sm text-muted text-lg-start">
+              © Fall-2023
+              made by
+              <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Group 25</a>
+              for COP5725 (University of Florida) DBMS Project
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>

@@ -1,0 +1,115 @@
+
+<body class="g-sidenav-show  bg-gray-200">
+  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-4 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+    <div class="sidenav-header">
+      <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+      <a class="navbar-brand" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
+        <!-- <img src="../assets/img/chart-line-solid.svg" class="navbar-brand-img h-100" alt="main_logo"> -->
+        <span class="ms-1 font-weight-bold text-white" style="font-size: 20px;"> Trend Queries</span>
+      </a>
+    </div>
+    <hr class="horizontal light mt-0 mb-2">
+    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-white {{this.selectedNav === '/dashboard' ? 'bg-gradient-primary' : ''}}" href="/dashboard">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">dashboard</i>
+            </div>
+            <span class="nav-link-text ms-1">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white {{this.selectedNav === '/query1' ? 'bg-gradient-primary' : ''}}" id="query12345" href="/query1">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <span class="material-symbols-outlined">
+                rainy
+                </span>
+            </div>
+            <span class="nav-link-text ms-1">Impact of Climate Condtion Variations</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white {{this.selectedNav === '/query2' ? 'bg-gradient-primary' : ''}} " id="query2" href="/query2">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <span class="material-symbols-outlined">
+                readiness_score
+                </span>
+            </div>
+            <span class="nav-link-text ms-1">Trends in Length of Trips (Distance)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white {{this.selectedNav === '/query3' ? 'bg-gradient-primary' : ''}}" id="query3"  href="/query3">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">thermostat</i>
+            </div>
+            <span class="nav-link-text ms-1">Accident Rates in Different States</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white {{this.selectedNav === '/query4' ? 'bg-gradient-primary' : ''}}" id="query4" href="/query4">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <span class="material-symbols-outlined">
+                reduce_capacity
+                </span>
+            </div>
+            <span class="nav-link-text ms-1">Accident Rates under Different Climate Conditioms</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white {{this.selectedNav === '/query5' ? 'bg-gradient-primary' : ''}}" id="query5" href="/query5">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <span class="material-symbols-outlined">
+                coronavirus
+                </span>
+            </div>
+            <span class="nav-link-text ms-1">Normalised Average Impact Duration</span>
+          </a>
+        </li>
+
+        
+      </ul>
+    </div>
+  </aside>
+  
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <router-outlet></router-outlet>
+  </main>
+
+ 
+  
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+ 
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
+  <!-- <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      const anchor = document.getElementById('query1');
+      
+      anchor.addEventListener('click', function(event) {
+        // event.preventDefault(); // Prevents the default behavior of the anchor tag
+        event.target.classList.add('bg-gradient-primary');
+        const clickedId = event.target.id;
+        console.log('Clicked ID:', clickedId);
+        
+      });
+    });
+  </script> -->
+</body>

@@ -1,0 +1,57 @@
+<h4 class="heading">Temporal Analysis of US Motor Vehicle Accidents Trends (2019-2023)</h4>
+<p id="q1">Impact of Climate Condtion Variations</p>
+<div class="col-lg-12 col-md-6 mt-4 mb-4" style="padding: 20px;">
+    <div class="card z-index-2">
+      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+        <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+          <div class="chart">
+            <canvas id="chart1" class="chart-canvas" height="300">{{chart1}}</canvas>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h6 class="mb-0 ">Deviation of Monthly Average Precipitation from Yearly Average Precipitation</h6>
+        <p class="text-sm ">Average of Total Number of Accidents in all the 12 months of the year.</p>
+        <div style="display: flex; flex-direction: row; align-items: start;" >
+            <label style="padding-right: 10px; padding-top: 7px; font-size: 18px;">Selected_State</label>
+            <select style="height: 40px; padding-right: 2px; margin-right: 20px;" [(ngModel)]="selected_state" (change)="updateState()">
+                <option *ngFor="let state of this.states" [value]="state.code">{{ state.name }}</option>
+            </select>
+            <label style="padding-right: 10px; padding-top: 7px; font-size: 18px;">Climate_Conditions</label>
+            <select name="cars" id="cars" style="height: 40px; padding-right: 2px; margin-right: 20px;" [(ngModel)]="climate_condition" (change)="updateClimate()">
+                <option value="dprep">Precipitation</option>
+                <option value="dvis">Visibility</option>
+                <option value="dwind_chill">Wind_Chill</option>
+                <option value="dhumidity">Humidity</option>
+                <option value="dwind_speed">Wind Speed</option>
+            </select>
+            <label style="padding-left: 5px; padding-right: 10px; padding-top: 7px; font-size: 18px;">Start_Date</label>
+            <input style="height: 40px; padding-left: 10px; padding-right: 10px; font-size: 18px; width: 100px;" type="text" id="startDate" placeholder="01-2021" name="startDate" [(ngModel)]="startDate">
+            <label style=" padding-left: 10px;padding-right: 10px; padding-top: 7px; font-size: 18px;">End_Date</label>
+            <input style="height: 40px; padding-left: 10px; padding-right: 10px; font-size: 18px; width: 100px;" type="text" id="endDate" placeholder="01-2021" name="startDate" [(ngModel)]="endDate">
+            <button style="margin-left: 20px; font-size: 12px; width: 100px;" type="submit" class="btn btn-primary" (click)="updateDate()">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-12 col-md-6 mt-4 mb-4" style="padding: 20px;">
+    <div class="card z-index-2 ">
+      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+        <div class="bg-gradient-info shadow-info border-radius-lg py-3 pe-1">
+          <div class="chart">
+            <canvas id="chart2" class="chart-canvas" height="300">{{chart2}}</canvas>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h6 class="mb-0 ">Average Accidents Per Year</h6>
+        <p class="text-sm ">Average of Total Number of Accidents in all the 12 months of the year.</p>
+        <hr class="dark horizontal">
+        <div class="d-flex ">
+          <i class="material-icons text-sm my-auto me-1">schedule</i>
+          <p class="mb-0 text-sm"> 2016-2023 </p>
+        </div>
+      </div>
+    </div>
+  </div>

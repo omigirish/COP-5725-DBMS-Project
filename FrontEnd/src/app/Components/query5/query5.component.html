@@ -1,0 +1,25 @@
+<h4 class="heading">Temporal Analysis of US Motor Vehicle Accidents Trends (2019-2023)</h4>
+<p id="q1">Normalised Average Impact Duration of Accidents vs Time</p>
+<div class="col-lg-12 col-md-6 mt-4 mb-4" style="padding: 20px;">
+    <div class="card z-index-2 ">
+      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+        <div class="bg-gradient-warning shadow-warning border-radius-lg py-3 pe-1">
+          <div class="chart">
+            <canvas id="chart-bars" class="chart-canvas" height="700">{{chart1}}</canvas>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h6 class="mb-0 ">Normalised Average Impact Duration</h6>
+        <p class="text-sm ">Compare the Normalised Average Impact Duration of accidents in 2 states by selecting the required states from the dropdown.</p>
+        <label style="padding-right: 10px; padding-top: 7px; font-size: 18px;">Selected_State_1</label>
+        <select style="height: 40px; padding-right: 2px; margin-right: 20px;" [(ngModel)]="selected_state1" (change)="updateState1()">
+            <option *ngFor="let state of this.states" [value]="state.code">{{ state.name }}</option>
+        </select>
+        <label style="padding-right: 10px; padding-top: 7px; font-size: 18px;">Selected_State_2</label>
+        <select style="height: 40px; padding-right: 2px; margin-right: 20px;" [(ngModel)]="selected_state2" (change)="updateState2()">
+            <option *ngFor="let state of this.states" [value]="state.code">{{ state.name }}</option>
+        </select>
+      </div>
+    </div>
+  </div>

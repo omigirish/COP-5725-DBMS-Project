@@ -1,14 +1,16 @@
-
 /.vscode
-/Database/IngestionScripts/.env
-/Database/IngestionScripts/__pycache__
-../../.DS_Store
-.DS_Store
+
+# BackEnd/Database
 /BackEnd/Database/IngestionScripts/__pycache__
+/BackEnd/Database/IngestionScripts/Table_Files
+/BackEnd/Database/IngestionScripts/.env
+
+# FrontEnd
 /FrontEnd/.angular
 /FrontEnd/.vscode
 /FrontEnd/node_modules
 .DS_Store
 
-/BackEnd/Database/IngestionScripts/Table_Files
-/BackEnd/Database/IngestionScripts/Datasets
+
+
+/FrontEnd/.editorconfig
