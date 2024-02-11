@@ -151,6 +151,7 @@ We have chosen the following technologies for each tier:
 ### 7.2 Screen 1 - Impact of Climate Condtion Variations
 
 #### Demo
+https://github.com/omigirish/COP-5725-DBMS-Project-GROUP_25/assets/56110537/dd3bc427-ec4a-48da-bbcc-04e4bd146c86
 
 #### Underlying sql query
 ```sql
@@ -203,6 +204,7 @@ SELECT monthly_state.month,
 ### 7.3 Screen 2 - Variation in Length of Trips
 
 #### Demo
+https://github.com/omigirish/COP-5725-DBMS-Project-GROUP_25/assets/56110537/cfe1c754-6a69-45ef-bed8-25bb76c16860
 
 #### Underlying sql query
 ```sql
@@ -251,6 +253,8 @@ WITH MonthlyTripData AS (
 
 #### Demo
 
+https://github.com/omigirish/COP-5725-DBMS-Project-GROUP_25/assets/56110537/8381333d-a208-4501-bd54-05396004a276
+
 #### Underlying sql query
 ```sql
 SELECT TO_CHAR(A.Start_Time, 'YYYY-MM') as month, COUNT(a.accident_id)
@@ -265,6 +269,7 @@ SELECT TO_CHAR(A.Start_Time, 'YYYY-MM') as month, COUNT(a.accident_id)
 ### 7.5 Screen 4 - Accident Rates Under Different Climate Conditions
 
 #### Demo
+https://github.com/omigirish/COP-5725-DBMS-Project-GROUP_25/assets/56110537/6dde4352-878e-41fd-aac7-4b8d7577e81a
 
 #### Underlying sql query
 ```sql
@@ -277,6 +282,8 @@ SELECT DISTINCT TO_CHAR(A.Start_Time, 'YYYY-MM') as month, COUNT(a.accident_id) 
 ### 7.6 Screen 5 - Normalised Average Impact Duration of Accidents vs Time
 
 #### Demo
+
+https://github.com/omigirish/COP-5725-DBMS-Project-GROUP_25/assets/56110537/ce198e3d-eda5-495f-b300-729f361d165a
 
 #### Underlying sql query
 ```sql
